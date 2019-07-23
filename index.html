@@ -42,7 +42,7 @@
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-        return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
+        return "<strong>Frequency:</strong> <span style='color:red'>" + d.Speed + "</span>";
     })
     var svg = d3.select("svg"),
     margin= {
@@ -102,6 +102,11 @@
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
         });
+
+    function type(d) {
+        d.Speed = +d.Speed;
+        return d;
+    }
     
     });
 
