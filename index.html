@@ -8,8 +8,36 @@
     .bar:hover {
         fill: pink;
     }
+    .d3-tip {
+        line-height: 1;
+        font-weight: bold;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 10px;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25BC";
+        position: absolute;
+        text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+    }
 </style>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
     var svg = d3.select("svg"),
@@ -21,15 +49,14 @@
     },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
-
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var tooltip = d3.select("rect")
-	.append('g')
-	.style("position", "absolute")
-	.style("z-index", "10")
-	.style("visibility", "hidden")
-	.text("a simple tooltip");
+    var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        return "<strong>Frequency:</strong> <span style='color:red'>" + d.Speed + "</span>";
+    });
 
     var parseTime = d3.timeParse("%d-%b-%y");
 
@@ -39,6 +66,8 @@
 
     var y = d3.scaleLinear()
 	.rangeRound([height, 0]);
+
+    svg.call(tip);
 
     d3.tsv("morley.tsv").then(function (data) {
 	    x.domain(data.map(function (d) {
@@ -75,10 +104,14 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.Speed))
         })
-        .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-	    .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-	    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
     });
+
+    function type(d) {
+        d.Speed = +d.Speed;
+        return d;
+    }
 
 </script>
 
