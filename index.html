@@ -58,8 +58,6 @@
         return "<strong>Frequency:</strong> <span style='color:red'>" + d.Speed + "</span>";
     });
 
-    var parseTime = d3.timeParse("%d-%b-%y");
-
     var x = d3.scaleBand()
     .rangeRound([0, width])
     .padding(0.1);
@@ -110,11 +108,6 @@
 
     function type(d) {
         d.Speed = +d.Speed;
-        return d;
-    }
-    function type(d) {
-        d.date = parseTime(d.date);
-        d.Flux = +d.Flux;
         return d;
     }
 
