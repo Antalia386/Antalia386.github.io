@@ -52,20 +52,7 @@
 	    .attr("text-anchor", "end")
 	    .text("Speed");
     
-        g.selectAll(".bar")
-	    .data(data)
-	    .enter().append("rect")
-	    .attr("class", "bar")
-	    .attr("x", function (d) {
-		    return x(d.Run);
-	    })
-	    .attr("y", function (d) {
-		    return y(Number(d.Speed));
-	    })
-	    .attr("width", x.bandwidth())
-	    .attr("height", function (d) {
-		    return height - y(Number(d.Speed));
-        });
+      
     
     });
 
