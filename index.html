@@ -51,6 +51,7 @@
 	.attr("dy", "0.71em")
 	.attr("text-anchor", "end")
 	.text("Speed");
+    
     g.selectAll(".bar")
 	.data(data)
 	.enter().append("rect")
@@ -65,6 +66,8 @@
 	.attr("height", function (d) {
 		return height - y(Number(d.Speed));
     });
-});
+    
+    });
+    
 </script>
 
