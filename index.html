@@ -40,9 +40,6 @@
     var div = d3.select("body").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
-    
-    var parseDate = d3.time.format("%d-%b-%y").parse;
-    var formatTime = d3.time.format("%e %B");
 
     var x = d3.scaleBand()
     .rangeRound([0, width])
