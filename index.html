@@ -103,9 +103,9 @@
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.Speed))
+        })
         .on('mouseover', tip.show)
-        .on('mouseout', tip.hide)
-        });
+        .on('mouseout', tip.hide);
 
     function type(d) {
         d.Speed = +d.Speed;
