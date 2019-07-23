@@ -37,6 +37,7 @@
     }
 </style>
 <script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
     var svg = d3.select("svg"),
@@ -67,7 +68,7 @@
 	.rangeRound([height, 0]);
 
     svg.call(tip);
-    
+
     d3.tsv("morley.tsv").then(function (data) {
 	    x.domain(data.map(function (d) {
 			return d.Run;
