@@ -79,21 +79,28 @@ d3.csv("incidents.csv", function(d) {
       .attr("id", function(d) { return d.id; })
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
-      .on("mouseover", handleMouseOver);	
+      .on("mouseover", function(d) {		
+    div.transition()		
+      .duration(200)		
+      .style("opacity", .9);	
     
     var duration = 300;
     data.forEach(function(d, i) {
     console.log(d.value);
     node.transition().duration(duration).delay(i * duration)
         .attr("r", d.value);
-
+});
      
     
     div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	
   })					
-    .on("mouseout", handleMouseOut); 
+    .on("mouseout", function(d) {		
+    div.transition()		
+      .duration(500)		
+      .style("opacity", 0);	
+  });
 
   
   
@@ -140,35 +147,5 @@ d3.csv("incidents.csv", function(d) {
   
   
 });
-
-function handleMouseOver(d, i) {  // Add interactivity
-
-// Use D3 to select element, change color and size
-d3.select(this).attr({
-  fill: "orange",
-  r: radius * 2
-});
-
-// Specify where to put label of text
-svg.append("text").attr({
-   id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
-    x: function() { return xScale(d.x) - 30; },
-    y: function() { return yScale(d.y) - 15; }
-})
-.text(function() {
-  return [d.x, d.y];  // Value of the text
-});
-}
-
-function handleMouseOut(d, i) {
-// Use D3 to select element, change color back to normal
-d3.select(this).attr({
-  fill: "black",
-  r: radius
-});
-
-// Select text by id and then remove
-d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
-}
 
 </script>
