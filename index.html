@@ -80,16 +80,20 @@ d3.csv("incidents.csv", function(d) {
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on("mouseover", function(d) {		
-    div.transition()		
-      .duration(200)		
-      .style("opacity", .9);	
-    
-    var duration = 300;
-    data.forEach(function(d, i) {
-    console.log(d.value);
-    node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.value);
-});
+        d3.select("circle").attr({
+              fill: "orange",
+              r: radius * 2
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "t" + d.Call_Type + "-" + d.value + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return xScale(d.Call_Type) - 30; },
+                y: function() { return yScale(d.value) - 15; }
+            })
+            .text(function() {
+              return [d.Call_Type, d.value];  // Value of the text  
+        });
      
     
     div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
