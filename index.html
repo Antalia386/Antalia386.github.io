@@ -37,7 +37,6 @@
     }
 </style>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
     var svg = d3.select("svg"),
@@ -51,12 +50,12 @@
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var tip = d3.tip()
-    .attr('class', 'd3-tip')
-    .offset([-10, 0])
-    .html(function(d) {
-        return "<strong>Frequency:</strong> <span style='color:red'>" + d.Speed + "</span>";
-    });
+    var tooltip = d3.select("rect")
+	.append('svg')
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("a simple tooltip");
 
     var parseTime = d3.timeParse("%d-%b-%y");
 
@@ -67,7 +66,6 @@
     var y = d3.scaleLinear()
 	.rangeRound([height, 0]);
 
-    svg.call(tip);
 
     d3.tsv("morley.tsv").then(function (data) {
 	    x.domain(data.map(function (d) {
@@ -104,8 +102,9 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.Speed))
         })
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
+        .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+	    .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+	    .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     });
 
     function type(d) {
