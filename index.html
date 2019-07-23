@@ -50,7 +50,7 @@ var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
 
-d3.tsv("morley.tsv", function(d) {
+d3.csv("incidents.csv", function(d) {
   d.value = +d["Count"];
   d.Call_Type = d["Call_Type"]
 
