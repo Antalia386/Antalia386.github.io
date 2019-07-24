@@ -41,7 +41,13 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")				
     .style("opacity", 0);
 
-  
+var tooltip = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("a simple tooltip"); 
+
   // Main title
   svg.append("text")
     .attr("x", 100)   
@@ -90,9 +96,7 @@ d3.csv("channels.csv", function(d) {
       .on('mouseover', function(d, i) {
         // make the mouseover'd element
         // bigger and red
-        div	.html(d.value + "<br/>" + "Channels"  + d.value)	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px")
+        tooltip.style("visibility", "visible");
         d3.select(this)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
