@@ -87,7 +87,7 @@ d3.csv("channels.csv", function(d) {
         // bigger and red
         //d3.select(this)
         div.transition()  
-        div.duration(300)
+        .duration(300)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
