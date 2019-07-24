@@ -140,16 +140,16 @@ d3.csv("channels.csv", function(d) {
 	 .style("fill", function(d) { return color(d.Call_Type)})
      .attr('xlink:href', function(d) {
         return d.Call_Type || "https://en.wikipedia.org/wiki/";
-    }).attr(d.Call_Type, '_blank');
+    }).attr("target", '_blank');
    
 
     legend.append("text")
      .attr("x", 25) 
-    	.attr("text-anchor", "start")
+     .attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
      .text(function(d) {return d.Call_Type;})
-    .attr("font-size", "12px"); 
+     .attr("font-size", "12px"); 
   
       
     legend.append("text")
