@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink"></html>
 <style>
   
 svg {
@@ -80,7 +81,7 @@ d3.csv("channels.csv", function(d) {
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
-      .attr("xlink:href", function(d) { return "https://www.wikipedia.org"+d.id; } )
+      .attr("xlink:href", function(d) { return "https://www.wikipedia.org"; } )
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
