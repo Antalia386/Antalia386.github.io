@@ -85,7 +85,7 @@ d3.csv("channels.csv", function(d) {
       .on('mouseover', function(d, i) {
         div.html(
          '<a href= "http://google.com">' + // The first <a> tag
-         'Link' +
+         d.id +
          "</a>" +                          // closing </a> tag
          "<br/>");
         console.log("mouseover on", this);
