@@ -81,7 +81,6 @@ d3.csv("channels.csv", function(d) {
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
-      .attr("xlink:href", function(d) { return "https://www.wikipedia.org"; } )
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
@@ -91,6 +90,11 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(300)
+        div.html(
+				'<a href= "http://google.com">' + // The first <a> tag
+				formatTime(d.date) +
+				"</a>" +                          // closing </a> tag
+				"<br/>"  + d.close)	
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
