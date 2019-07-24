@@ -89,7 +89,7 @@ d3.csv("channels.csv", function(d) {
       // bigger and red
       d3.select(this)
         .transition()
-        .duration(100)
+        .duration(300)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
@@ -99,11 +99,10 @@ d3.csv("channels.csv", function(d) {
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
-      // return the mouseover'd element
-      // to being smaller and black
+      // return the mouseover'd element to original
       d3.select(this)
         .transition()
-        .duration(100)
+        .duration(300)
         .attr("r", function(d) { return d.r; })
     });
 
