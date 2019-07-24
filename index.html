@@ -99,7 +99,9 @@ d3.csv("channels.csv", function(d) {
         div .html(
          '<a href= "http://google.com">' + // The first <a> tag
          d.id +
-         "</a>");
+         "</a>")
+         .style("left", (d3.event.pageX) + "px")             
+         .style("top", (d3.event.pageY) + "px");
         })
 
 
