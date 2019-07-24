@@ -92,7 +92,7 @@ d3.csv("channels.csv", function(d) {
          .style("center", (d3.event.pageY) + "px");
         d3.select(this)
         .transition()  
-        .duration(200)
+        .duration(100)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
