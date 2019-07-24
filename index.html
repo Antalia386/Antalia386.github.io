@@ -90,7 +90,7 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(100)
-        .attr('r', 200)
+        .attr('r', i * 10)
         .attr('fill', '#ff0000');
     })
     .on('mouseout', function(d, i) {
@@ -100,7 +100,7 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(100)
-        .attr('r', 100)
+        .attr('r', i)
         .attr('fill', '#000000');
     });
 
