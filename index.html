@@ -147,13 +147,10 @@ d3.csv("channels.csv", function(d) {
      .attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
-     .text(function(d) {
-            return d.Call_Type;
-            })
+     .text(function(d) { return d.Call_Type;
+            }).on("click", function() { window.open("https://en.wikipedia.org/wiki/" + d.Call_Type, "_blank"); })
      .attr("font-size", "12px"); 
-     d3.select(this)
-            .wrap("<a xlink:href \"http://example.com/\"></a>")
-            .text("eeeeeeeeeeeeeeeeeee");
+
   
       
     legend.append("text")
