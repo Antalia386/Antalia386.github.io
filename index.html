@@ -75,7 +75,14 @@ d3.csv("channels.csv", function(d) {
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+ 
+ 
+  
+  node.append("circle")
+      .attr("id", function(d) { return d.id; })
+      .attr("r", function(d) { return d.r; })
+      .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
       console.log("mouseover on", this);
       // make the mouseover'd element
@@ -96,34 +103,6 @@ d3.csv("channels.csv", function(d) {
         .attr('r', 100)
         .attr('fill', '#000000');
     });
- 
-  
-  node.append("circle")
-      .attr("id", function(d) { return d.id; })
-      .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.data.Call_Type); })
-      .on("mouseover", function(d) {		
-        div.transition()		
-        .duration(200)		
-        .style("opacity", .9);	
-    
-      var duration = 300;
-      data.forEach(function(d, i) {
-      console.log(d.value);
-      node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.value);
-      });
-     
-    
-    div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
-      .style("left", (d3.event.pageX) + "px")		
-      .style("top", (d3.event.pageY - 28) + "px");	
-  })					
-    .on("mouseout", function(d) {		
-    div.transition()		
-      .duration(500)		
-      .style("opacity", 0);	
-  });
 
   
   
