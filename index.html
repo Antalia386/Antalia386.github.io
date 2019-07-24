@@ -64,7 +64,7 @@ d3.csv("channels.csv", function(d) {
   .domain(data.map(function(d){ return d.Channel;}))
   .range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
   '#ffe9a8','#b9bfe3','#fddaec','#cccccc','#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
-  '#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
+  '#ffe9a8','#b9bfe3','#fddaec']);
   
   var root = d3.hierarchy({children: data})
       .sum(function(d) { return d.Value; })
