@@ -37,6 +37,7 @@ var div = d3.select("body").append("div")
     .style("opacity", 0);
 
   
+  // Main title
   svg.append("text")
     .attr("x", 100)   
     .attr("y", 5 )
@@ -45,6 +46,7 @@ var div = d3.select("body").append("div")
     .style("font-size", "28px")  
   	.style("font-weight", "bold")
     .text("What YouTube Channels are the most popular? ")
+
 
 var pack = d3.pack()
     .size([width-150, height])
@@ -73,7 +75,27 @@ d3.csv("channels.csv", function(d) {
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .on('mouseover', function(d, i) {
+      console.log("mouseover on", this);
+      // make the mouseover'd element
+      // bigger and red
+      d3.select(this)
+        .transition()
+        .duration(100)
+        .attr('r', 20)
+        .attr('fill', '#ff0000');
+    })
+    .on('mouseout', function(d, i) {
+      console.log("mouseout", this);
+      // return the mouseover'd element
+      // to being smaller and black
+      d3.select(this)
+        .transition()
+        .duration(100)
+        .attr('r', 10)
+        .attr('fill', '#000000');
+    });
  
   
   node.append("circle")
