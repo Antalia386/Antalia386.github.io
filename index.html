@@ -77,7 +77,6 @@ d3.csv("channels.csv", function(d) {
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
  
- 
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
@@ -98,7 +97,7 @@ d3.csv("channels.csv", function(d) {
          })
         .style("stroke", "red")
        	.style("stroke-width", 2)
-        .attr("xlink:href", "http://en.wikipedia.org/wiki/"+word);
+        .attr("xlink:href", "http://en.wikipedia.org/wiki/"+d.data.Call_Type);
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
