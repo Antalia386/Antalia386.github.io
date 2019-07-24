@@ -50,9 +50,9 @@ var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
 
-d3.csv("incidents.csv", function(d) {
+d3.csv("channels.csv", function(d) {
   d.value = +d["Count"];
-  d.Call_Type = d["Call_Type"]
+  d.channel = d["Channel"]
 
  	return d;
 }, function(error, data) {
@@ -72,13 +72,13 @@ d3.csv("incidents.csv", function(d) {
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.channel + "," + d.value + ")"; });
  
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
       .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.data.Call_Type); })
+      .style("fill", function(d) { return color(d.data.Channel); })
       .on("mouseover", function(d) {		
     div.transition()		
       .duration(200)		
@@ -106,9 +106,7 @@ d3.csv("incidents.csv", function(d) {
   
    node.append("text")
       .text(function(d) {
-     if (d.data.value > 748|| d.data.Call_Type == "Other" || d.data.Call_Type == "Fire"){
-       return d.data.Call_Type;
-     }
+       return d.data.Channel;
      return "";});
   
   
@@ -125,7 +123,7 @@ d3.csv("incidents.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; })
      .attr("width", 15)
      .attr("height", 15)
-		.style("fill", function(d) { return color(d.Call_Type)});
+		.style("fill", function(d) { return color(d.Channel)});
    
 
     legend.append("text")
@@ -133,7 +131,7 @@ d3.csv("incidents.csv", function(d) {
     	.attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; })
-     .text(function(d) {return d.Call_Type;})
+     .text(function(d) {return d.Channel;})
     .attr("font-size", "12px"); 
   
       
