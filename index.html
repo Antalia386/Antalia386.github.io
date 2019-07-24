@@ -43,7 +43,7 @@ var div = d3.select("body").append("div")
 
 var tooltip1 = d3.select("body")
 	.append("div")
-	//.style("position", "fixed")
+	.style("position", "fixed")
     .style("font-size", "40px")
     .style("color", "maroon")
 	//.style("z-index", "10")
@@ -99,7 +99,7 @@ d3.csv("channels.csv", function(d) {
         // make the mouseover'd element
         // bigger and red
         tooltip1.style("visibility", "visible")
-        tooltip1.style("top", (d3.event.pageY-20)+"px").style("left",(d3.event.pageX+20)+"px")
+        tooltip1.style("top", (d3.event.pageY-30)+"px").style("left",(d3.event.pageX+30)+"px")
         tooltip1.text(d.value + " channels!")
         d3.select(this)
         .attr('r', function(d) { 
