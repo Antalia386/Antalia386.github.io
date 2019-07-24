@@ -138,9 +138,8 @@ d3.csv("channels.csv", function(d) {
      .attr("width", 15)
      .attr("height", 15)
 	 .style("fill", function(d) { return color(d.Call_Type)})
-     .attr('xlink:href', function(d) {
-        return d.Call_Type || "https://en.wikipedia.org/wiki/";
-    }).attr("target", '_blank');
+     .attr("href", function(d) {
+            window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank")});
    
 
     legend.append("text")
