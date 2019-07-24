@@ -92,12 +92,12 @@ d3.csv("channels.csv", function(d) {
             }
          return d.r * 2;
          })
-         div    .html(
+        .style("stroke", "red")
+       	.style("stroke-width", 2)
+        div    .html(
 			'<a href= "http://google.com">' + d.data.Call_Type + "</a>" +  "<br/>"  + d.data.Call_Type)  
             .style("left", 0/*(d3.event.pageX)*/ + "%")		
             .style("top", /*(d3.event.pageY - 100)*/ 10 + "%")
-        .style("stroke", "red")
-       	.style("stroke-width", 2)
         div.transition()  
             .duration(500)
             .style("opacity", .9);
