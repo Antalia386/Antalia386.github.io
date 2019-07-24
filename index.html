@@ -106,10 +106,7 @@ d3.csv("channels.csv", function(d) {
   
    node.append("text")
       .text(function(d) {
-     if (d.data.value > 748|| d.data.Call_Type == "Other" || d.data.Call_Type == "Fire"){
-       return d.data.Call_Type;
-     }
-     return "";});
+        return d.data.Call_Type;});
   
   
 
