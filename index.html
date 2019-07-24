@@ -83,16 +83,16 @@ d3.csv("channels.csv", function(d) {
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
-      console.log("mouseover on", this);
-      // make the mouseover'd element
-      // bigger and red
-      d3.select(this)
-        .transition()
         div.html(
-            '<a href= "http://google.com">' + // The first <a> tag
-            'Link' +
-            "</a>" +                          // closing </a> tag
-            "<br/>")  
+         '<a href= "http://google.com">' + // The first <a> tag
+         'Link' +
+         "</a>" +                          // closing </a> tag
+         "<br/>");
+        console.log("mouseover on", this);
+        // make the mouseover'd element
+        // bigger and red
+        d3.select(this)
+        .transition()  
         .duration(300)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
@@ -102,11 +102,13 @@ d3.csv("channels.csv", function(d) {
          })
         .style("stroke", "red")
        	.style("stroke-width", 2);  
-    })
-    .on('mouseout', function(d, i) {
-      console.log("mouseout", this);
-      // return the mouseover'd element to original
-      d3.select(this)
+        })
+
+
+      .on('mouseout', function(d, i) {
+        console.log("mouseout", this);
+        // return the mouseover'd element to original
+        d3.select(this)
         .transition()
         .duration(300)
         .attr("r", function(d) { return d.r; })
