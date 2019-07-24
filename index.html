@@ -107,6 +107,9 @@ d3.csv("channels.csv", function(d) {
   
    node.append("text")
       .text(function(d) {
+          if (d.data.value < 700){
+            return "";
+          }
         return d.data.Call_Type;});
   
   
