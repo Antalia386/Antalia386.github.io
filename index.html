@@ -82,13 +82,13 @@ d3.csv("incidents.csv", function(d) {
       .on("mouseover", function(d) {		
         d3.select("circle").attr({
               fill: "orange",
-              r: 20
+              r: 2
             });
 
             // Specify where to put label of text
             svg.append("text").attr({
                id: "t" + d.Call_Type + "-" + d.value,  // Create an id for text so we can select it later for removing on mouseout
-                x: function() { return xScale(d.Call_Type) - 30; },
+                x: function() { return xScale(30); },
                 y: function() { return yScale(d.value) - 15; }
             })
             .text(function() {
