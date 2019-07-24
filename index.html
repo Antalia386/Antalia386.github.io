@@ -9,7 +9,7 @@ svg {
   div.tooltip {	
     position: absolute;			
     text-align: center;			
-    width: 60px;					
+    width: 80px;					
     height: 45px;					
     padding: 2px;				
     font: 12px sans-serif;		
@@ -81,16 +81,16 @@ d3.csv("channels.csv", function(d) {
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on("mouseover", function(d) {		
-    div.transition()		
-      .duration(200)		
-      .style("opacity", .9);	
+        div.transition()		
+        .duration(200)		
+        .style("opacity", .9);	
     
       var duration = 300;
-  data.forEach(function(d, i) {
-    console.log(d.value);
-    node.transition().duration(duration).delay(i * duration)
+      data.forEach(function(d, i) {
+      console.log(d.value);
+      node.transition().duration(duration).delay(i * duration)
         .attr("r", d.value);
-});
+      });
      
     
     div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
@@ -121,11 +121,12 @@ d3.csv("channels.csv", function(d) {
   .attr("transform", "translate(" + 780 + "," + 120+ ")");
      
  
+   // Right legend colors and text
    legend.append("rect")
      .attr("x", 0) 
      .attr("y", function(d, i) { return 20 * i; })
-     .attr("width", 25)
-     .attr("height", 25)
+     .attr("width", 15)
+     .attr("height", 15)
 		.style("fill", function(d) { return color(d.Call_Type)});
    
 
