@@ -51,8 +51,8 @@ var pack = d3.pack()
     .padding(1.5);
 
 d3.csv("channels.csv", function(d) {
-  d.value = +d["Count"];
-  d.channel = d["Channel"]
+  d.Value = +d["Count"];
+  d.Channel = d["Channel"]
 
  	return d;
 }, function(error, data) {
@@ -61,24 +61,24 @@ d3.csv("channels.csv", function(d) {
   
  
   var color = d3.scaleOrdinal()
-  .domain(data.map(function(d){ return d.Call_Type;}))
+  .domain(data.map(function(d){ return d.Channel;}))
   .range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
   '#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
   
   var root = d3.hierarchy({children: data})
-      .sum(function(d) { return d.value; })
+      .sum(function(d) { return d.Value; })
 
   var node = svg.selectAll(".node")
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.channel + "," + d.value + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.Channel + "," + d.Value + ")"; });
  
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
       .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.data.channel); })
+      .style("fill", function(d) { return color(d.data.Channel); })
       .on("mouseover", function(d) {		
     div.transition()		
       .duration(200)		
@@ -86,13 +86,13 @@ d3.csv("channels.csv", function(d) {
     
       var duration = 300;
   data.forEach(function(d, i) {
-    console.log(d.value);
+    console.log(d.Value);
     node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.value);
+        .attr("r", d.Value);
 });
      
     
-    div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
+    div.html(d.data.Channel + ": <br>"+d.data.Value  )	
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	
   })					
@@ -106,7 +106,7 @@ d3.csv("channels.csv", function(d) {
   
    node.append("text")
       .text(function(d) {
-       return d.data.channel;
+       return d.data.Channel;
      return "";});
   
   
@@ -123,7 +123,7 @@ d3.csv("channels.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; })
      .attr("width", 15)
      .attr("height", 15)
-		.style("fill", function(d) { return color(d.channel)});
+		.style("fill", function(d) { return color(d.Channel)});
    
 
     legend.append("text")
@@ -131,7 +131,7 @@ d3.csv("channels.csv", function(d) {
     	.attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; })
-     .text(function(d) {return d.channel;})
+     .text(function(d) {return d.Channel;})
     .attr("font-size", "12px"); 
   
       
