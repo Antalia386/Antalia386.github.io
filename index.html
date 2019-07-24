@@ -88,7 +88,7 @@ d3.csv("channels.csv", function(d) {
       // bigger and red
       d3.select(this)
         .transition()
-        .html(
+        this.html(
             '<a href= "http://google.com">' + // The first <a> tag
             'Link' +
             "</a>" +                          // closing </a> tag
