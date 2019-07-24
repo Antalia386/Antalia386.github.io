@@ -145,7 +145,7 @@ d3.csv("channels.csv", function(d) {
     	.attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; })
-     .text(function(d) {return d.Call_Type;})
+     .text(function(d) {return '<a href= "http://google.com">' + d.Call_Type + "</a>";})
     .attr("font-size", "12px"); 
   
       
