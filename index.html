@@ -109,7 +109,7 @@ d3.csv("channels.csv", function(d) {
         // return the mouseover'd element to original
         d3.select(this)
         .transition()
-        .duration(300)
+        //.duration(300)
         .attr("r", function(d) { return d.r; })
        	.style("stroke-width", 0);
     });
