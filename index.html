@@ -83,13 +83,6 @@ d3.csv("channels.csv", function(d) {
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
-        div .html(
-         '<a href= "http://google.com">' + // The first <a> tag
-         d.id +
-         "</a>" +                          // closing </a> tag
-         "<br/>"  + d.id)     
-         .style("left", (d3.event.pageX) + "px")             
-         .style("top", (d3.event.pageY - 28) + "px");
         // make the mouseover'd element
         // bigger and red
         d3.select(this)
@@ -103,6 +96,13 @@ d3.csv("channels.csv", function(d) {
          })
         .style("stroke", "red")
        	.style("stroke-width", 2);  
+        div .html(
+         '<a href= "http://google.com">' + // The first <a> tag
+         d.id +
+         "</a>" +                          // closing </a> tag
+         "<br/>"  + d.id)     
+         .style("left", (d3.event.pageX) + "px")             
+         .style("top", (d3.event.pageY - 28) + "px");
         })
 
 
