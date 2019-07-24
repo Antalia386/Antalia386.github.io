@@ -100,12 +100,12 @@ d3.csv("channels.csv", function(d) {
         .attr("cursor", "pointer")
         .style("stroke", "red")
        	.style("stroke-width", 2)
+        div	.html(d.value + "<br/>" + "Channels"  + d.value)	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px")
         .on("click", function(d) {
             window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank");
         }) 
-        div	.html(d.value + "<br/>"  + d.value)	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px")
         div.transition()  
             .duration(500);
         })
