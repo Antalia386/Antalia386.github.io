@@ -98,7 +98,11 @@ d3.csv("channels.csv", function(d) {
          })
         .style("stroke", "red")
        	.style("stroke-width", 2)
-        .html("<a href='https://stackoverflow.com/questions/51168981/d3-how-to-add-border-to-a-circle-on-an-if-condition'>new page</a>")
+        .html(
+            '<a href= "http://google.com">' + // The first <a> tag
+            'Link' +
+            "</a>" +                          // closing </a> tag
+            "<br/>")   ;  
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
