@@ -139,7 +139,7 @@ d3.csv("channels.csv", function(d) {
      .attr("height", 15)
 	 .style("fill", function(d) { return color(d.Call_Type)})
      .attr("href", function(d) {
-            window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank")});
+            window.open("https://en.wikipedia.org/wiki/" + d.Call_Type, "_blank")});
    
 
     legend.append("text")
