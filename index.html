@@ -151,6 +151,9 @@ d3.csv("channels.csv", function(d) {
             return d.Call_Type;
             })
      .attr("font-size", "12px"); 
+     d3.select(this)
+            .wrap("<a xlink:href \"http://example.com/\"></a>")
+            .text("eeeeeeeeeeeeeeeeeee");
   
       
     legend.append("text")
