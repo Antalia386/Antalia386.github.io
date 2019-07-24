@@ -92,9 +92,9 @@ d3.csv("channels.csv", function(d) {
         .duration(300)
         div.html(
 				'<a href= "http://google.com">' + // The first <a> tag
-				d.data.Call_Type +
+				d.Call_Type +
 				"</a>" +                          // closing </a> tag
-				"<br/>"  + d.data.Call_Type)	
+				"<br/>"  + d.Call_Type)	
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
