@@ -100,7 +100,7 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(100)
-        .attr('r', function(d) { return this.r; })
+        .attr('r', function(d) { return d.r; })
         .attr('fill', '#000000');
     });
 
