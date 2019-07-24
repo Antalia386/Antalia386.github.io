@@ -86,9 +86,6 @@ d3.csv("channels.csv", function(d) {
         // make the mouseover'd element
         // bigger and red
         d3.select(this)
-        .transition()  
-        .duration(500)
-        .style("opacity", .9)
         .attr('r', function(d) { 
             if ( d.data.value > 10000) {
              return d.r * 1.2;
@@ -96,7 +93,10 @@ d3.csv("channels.csv", function(d) {
          return d.r * 2;
          })
         .style("stroke", "red")
-       	.style("stroke-width", 2);  
+       	.style("stroke-width", 2)
+        div.transition()  
+            .duration(500)
+            .style("opacity", .9);
         div	.html(
 			'<a href= "http://google.com">' + d.data.Call_Type + "</a>" +  "<br/>"  + d.data.Call_Type)  
             .style("left", 0/*(d3.event.pageX)*/ + "%")		
