@@ -148,7 +148,7 @@ d3.csv("channels.csv", function(d) {
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
      .text(function(d) {
-            window.open("https://en.wikipedia.org/wiki/" + d.Call_Type, "_blank");
+            return d.Call_Type;
             })
      .attr("font-size", "12px"); 
   
