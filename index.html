@@ -98,7 +98,7 @@ d3.csv("channels.csv", function(d) {
          return d.r * 2;
          })
         .attr("cursor", "pointer")
-        .attr("id", function(d) { return d.value; })
+        .text(function(d) { return d.value;})
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
