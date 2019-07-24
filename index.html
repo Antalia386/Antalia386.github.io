@@ -84,15 +84,6 @@ d3.csv("incidents.csv", function(d) {
               fill: "orange",
               r: 2
             });
-
-            // Specify where to put label of text
-            svg.append("text").attr({
-                x: function() { return xScale(30); },
-                y: function() { return yScale(d.value) - 15; }
-            })
-            .text(function() {
-              return [d.Call_Type, d.value];  // Value of the text  
-        });
      
     
     div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
