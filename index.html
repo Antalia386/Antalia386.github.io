@@ -97,7 +97,8 @@ d3.csv("channels.csv", function(d) {
          return d.r * 2;
          })
         .style("stroke", "red")
-       	.style("stroke-width", 2);
+       	.style("stroke-width", 2)
+        .attr("xlink:href", "http://en.wikipedia.org/wiki/"+word);
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
