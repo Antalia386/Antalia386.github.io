@@ -102,12 +102,12 @@ d3.csv("channels.csv", function(d) {
        	.style("stroke-width", 2)
         .on("click", function(d) {
             window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank");
-        })
+        }) 
+        div.transition()  
+            .duration(500);  
         div .html(d.data.value + "<br/>"  + d.data.value)  
                 .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px") 
-        div.transition()  
-            .duration(500);  	
+                .style("top", (d3.event.pageY - 28) + "px");
         })
 
 
