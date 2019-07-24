@@ -50,9 +50,9 @@ var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
 
-d3.csv("channels.csv", function(d) {
-  d.Value = +d["Count"];
-  d.Channel = d["Channel"]
+d3.csv("bubble.csv", function(d) {
+  d.value = +d["Count"];
+  d.Call_Type = d["Call_Type"]
 
  	return d;
 }, function(error, data) {
@@ -61,25 +61,24 @@ d3.csv("channels.csv", function(d) {
   
  
   var color = d3.scaleOrdinal()
-  .domain(data.map(function(d){ return d.Channel;}))
+  .domain(data.map(function(d){ return d.Call_Type;}))
   .range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
-  '#ffe9a8','#b9bfe3','#fddaec','#cccccc','#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
-  '#ffe9a8','#b9bfe3','#fddaec']);
+  '#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
   
   var root = d3.hierarchy({children: data})
-      .sum(function(d) { return d.Value; })
+      .sum(function(d) { return d.value; })
 
   var node = svg.selectAll(".node")
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.Channel + "," + d.Value + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
  
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
       .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.data.Channel); })
+      .style("fill", function(d) { return color(d.data.Call_Type); })
       .on("mouseover", function(d) {		
     div.transition()		
       .duration(200)		
@@ -87,13 +86,13 @@ d3.csv("channels.csv", function(d) {
     
       var duration = 300;
   data.forEach(function(d, i) {
-    console.log(d.Value);
+    console.log(d.value);
     node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.Value);
+        .attr("r", d.value);
 });
      
     
-    div.html(d.data.Channel + ": <br>"+d.data.Value  )	
+    div.html(d.data.Call_Type + ": <br>"+d.data.value  )	
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	
   })					
@@ -107,7 +106,9 @@ d3.csv("channels.csv", function(d) {
   
    node.append("text")
       .text(function(d) {
-       return d.data.Channel;
+     if (d.data.value > 748|| d.data.Call_Type == "Other" || d.data.Call_Type == "Fire"){
+       return d.data.Call_Type;
+     }
      return "";});
   
   
@@ -124,7 +125,7 @@ d3.csv("channels.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; })
      .attr("width", 15)
      .attr("height", 15)
-		.style("fill", function(d) { return color(d.Channel)});
+		.style("fill", function(d) { return color(d.Call_Type)});
    
 
     legend.append("text")
@@ -132,7 +133,7 @@ d3.csv("channels.csv", function(d) {
     	.attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; })
-     .text(function(d) {return d.Channel;})
+     .text(function(d) {return d.Call_Type;})
     .attr("font-size", "12px"); 
   
       
