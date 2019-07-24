@@ -99,7 +99,7 @@ d3.csv("channels.csv", function(d) {
         // make the mouseover'd element
         // bigger and red
         tooltip1.style("visibility", "visible")
-        tooltip1.style("top", (d3.event.pageY)+"px").style("left",(d3.event.pageX)+"px")
+        tooltip1.style("top", "10px").style("left","20px")
         tooltip1.text(d.value + " channels!")
         d3.select(this)
         .attr('r', function(d) { 
