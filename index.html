@@ -90,7 +90,12 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(100)
-        .attr('r', function(d) { return d.r * 2; })
+        .attr('r', function(d) { 
+            if ( d.data.value > 10000) {
+             return d.r * 1.2;
+            }
+         return d.t * 2;
+         })
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
@@ -99,7 +104,7 @@ d3.csv("channels.csv", function(d) {
       d3.select(this)
         .transition()
         .duration(100)
-        .attr('r', function(d) { return d.r; })
+        .attr("r", function(d) { return d.r; })
     });
 
   
