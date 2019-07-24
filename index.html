@@ -96,6 +96,9 @@ d3.csv("channels.csv", function(d) {
             }
          return d.r * 2;
          })
+        .style("stroke", "red")
+       	.style("fill", "none")
+       	.style("stroke-width", 2);
     })
     .on('mouseout', function(d, i) {
       console.log("mouseout", this);
