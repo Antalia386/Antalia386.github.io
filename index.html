@@ -20,6 +20,7 @@ svg {
 
   text:hover {
     cursor: pointer;
+    font-weight: bold;
   }
 </style>
 <svg width="1060" height="1060" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
@@ -99,9 +100,7 @@ d3.csv("channels.csv", function(d) {
             window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank");
         })
         div.transition()  
-            .duration(500)
-            .style("opacity", .9);
-        	
+            .duration(500);  	
         })
 
 
