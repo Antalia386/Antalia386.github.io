@@ -94,7 +94,7 @@ d3.csv("channels.csv", function(d) {
             if ( d.data.value > 10000) {
              return d.r * 1.2;
             }
-         return d.t * 2;
+         return d.r * 2;
          })
     })
     .on('mouseout', function(d, i) {
