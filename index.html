@@ -72,7 +72,7 @@ d3.csv("incidents.csv", function(d) {
     .data(pack(root).leaves())
     .enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      .attr("transform", function(d) { return "translate(" + d.Call_Type + "," + d.value + ")"; });
  
   
   node.append("circle")
@@ -87,7 +87,7 @@ d3.csv("incidents.csv", function(d) {
 
             // Specify where to put label of text
             svg.append("text").attr({
-               id: "t" + d.Call_Type + "-" + d.value + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+               id: "t" + d.Call_Type + "-" + d.value,  // Create an id for text so we can select it later for removing on mouseout
                 x: function() { return xScale(d.Call_Type) - 30; },
                 y: function() { return yScale(d.value) - 15; }
             })
