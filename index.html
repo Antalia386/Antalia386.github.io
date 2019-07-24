@@ -83,7 +83,7 @@ d3.csv("channels.csv", function(d) {
       .attr("r", function(d) { return d.r; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
-        div.html(
+        this.html(
          '<a href= "http://google.com">' + // The first <a> tag
          d.id +
          "</a>" +                          // closing </a> tag
