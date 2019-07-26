@@ -128,6 +128,9 @@
 
         g.selectAll("bar").append("text")
         .attr("x", function (d) {
+                return x(d.title) / 2;
+            })
+        .attr("y", function (d) {
             return Number(d.followers) + 3;
             })
         .text(function(d) { return d.followers; })
