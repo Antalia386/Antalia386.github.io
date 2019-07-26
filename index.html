@@ -168,7 +168,7 @@ d3.csv("channels.csv", function(d) {
      .text(function(d) { return d.Call_Type + ": " + d.value + " channels ";})
      .on("click", function(d) { 
          
-        if (d.data.Call_Type == "Entertainment") {
+        if (d.Call_Type == "Entertainment") {
                 window.open("https://antalia386.github.io/Top10_enter.html");
             }
      
