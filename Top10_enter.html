@@ -102,6 +102,14 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers));
 	    })
+        enter().append("rect")
+        .attr("x", function (d) {
+                return x(d.title) / 2;
+            })
+        .attr("y", function (d) {
+            return Number(d.followers) + 3;
+            })
+        .text(function(d) { return d.followers; })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
@@ -124,17 +132,6 @@
                 .duration(500)		
                 .style("opacity", 0);
         })
-
-        g.selectAll(".bar").append("text")
-        .data(data)
-        .enter().append("rect")
-        .attr("x", function (d) {
-                return x(d.title) / 2;
-            })
-        .attr("y", function (d) {
-            return Number(d.followers) + 3;
-            })
-        .text(function(d) { return d.followers; })
     });
 
 </script>
