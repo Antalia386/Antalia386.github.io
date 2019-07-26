@@ -124,6 +124,9 @@
                 .duration(500)		
                 .style("opacity", 0);
         })
+
+        g.append("text")
+        .text(function(d) { return d.followers; })
     });
 
 </script>
