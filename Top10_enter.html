@@ -30,7 +30,7 @@
         top: 20,
 	    right: 50,
 	    bottom: 30,
-	    left: 50
+	    left: 100
     },
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
@@ -67,7 +67,7 @@
 	    .attr("y", 6)
 	    .attr("dy", "0.31em")
 	    .attr("text-anchor", "end")
-	    .text("Followers");
+	    .text("By Number of Followers");
     
         g.selectAll(".bar")
 	    .data(data)
