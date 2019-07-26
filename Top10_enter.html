@@ -94,7 +94,7 @@
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
-        .text(function(d) { return d.followers; });
+        .text(function(d) { return d.followers; })
 	    .attr("class", "bar")
 	    .attr("x", function (d) {
 		    return x(d.title);
