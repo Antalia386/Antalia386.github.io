@@ -48,7 +48,7 @@
     var y = d3.scaleLinear()
 	.rangeRound([height, 0]);
 
-    d3.tsv("morley.tsv").then(function (data) {
+    d3.tsv("Top10_Enter.tsv").then(function (data) {
 	    x.domain(data.map(function (d) {
 			return d.Run;
 		}));

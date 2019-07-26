@@ -112,6 +112,9 @@ d3.csv("channels.csv", function(d) {
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
+            if (d.data.Call_Type == "Entertainment") {
+                window.open("https://antalia386.github.io/Top10_enter.html");
+            }
             window.open("https://en.wikipedia.org/wiki/" + d.data.Call_Type, "_blank");
         }) 
         div.transition()  
