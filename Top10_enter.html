@@ -11,7 +11,7 @@
     div.tooltip {	
     position: absolute;			
     text-align: center;			
-    width: 60px;					
+    width: 80px;					
     height: 28px;					
     padding: 2px;				
     font: 16px times;		
@@ -93,7 +93,7 @@
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div.html(d.followers)	
+            div.html(d.followers + " followers!")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
