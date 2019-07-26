@@ -118,7 +118,8 @@
                 .duration(200)		
                 .style("opacity", .9);
         })					
-        .on("mouseout", function(d) {		
+        .on("mouseout", function(d) {	
+            tooltip1.style("visibility", "hidden")	
             div.transition()		
                 .duration(500)		
                 .style("opacity", 0);
