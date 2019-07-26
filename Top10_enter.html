@@ -106,6 +106,10 @@
 		    return height - y(Number(d.followers))
         })
         .style("font-family", "times")
+        .append("text")
+        .text(function(d) {
+            return d.followers;
+        })
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
             tooltip1.style("top", "600px").style("left","100px").style("right","300px")
