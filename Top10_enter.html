@@ -93,7 +93,7 @@
     
         g.selectAll(".bar")
 	    .data(data)
-	    .enter().append("rect")
+	    .enter().append("rect").append("text").text(function(d) { return d.followers; })
 	    .attr("class", "bar")
 	    .attr("x", function (d) {
 		    return x(d.title);
@@ -101,7 +101,6 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers));
 	    })
-        .append("text").text(function(d) { return d.followers; })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
