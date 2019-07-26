@@ -50,10 +50,10 @@
 
     d3.tsv("Top10_Enter.tsv").then(function (data) {
 	    x.domain(data.map(function (d) {
-			return d.Run;
+			return d.title;
 		}));
 	    y.domain([0, d3.max(data, function (d) {
-				return Number(d.Speed);    
+				return Number(d.followers);    
 		})]);
         g.append("g")
 	    .attr("transform", "translate(0," + height + ")")
@@ -67,27 +67,27 @@
 	    .attr("y", 6)
 	    .attr("dy", "0.71em")
 	    .attr("text-anchor", "end")
-	    .text("Speed");
+	    .text("Followers");
     
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
 	    .attr("class", "bar")
 	    .attr("x", function (d) {
-		    return x(d.Run);
+		    return x(d.title);
 	    })
 	    .attr("y", function (d) {
-		    return y(Number(d.Speed));
+		    return y(Number(d.followers));
 	    })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
-		    return height - y(Number(d.Speed))
+		    return height - y(Number(d.followers))
         })
         .on("mouseover", function(d) {		
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div.html(d.Speed)	
+            div.html(d.followers)	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
