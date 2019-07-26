@@ -106,17 +106,18 @@
 		    return height - y(Number(d.followers))
         })
         .style("font-family", "times")
-        .on("mouseover", function(d) {	
+        .on("mouseover", function(d) {
+            tooltip1.style("visibility", "visible")
+            tooltip1.style("top", "800px").style("left","800px")
+            tooltip1.text(d.description)	
             d3.select(this)
             .on("click", function(d) {
                 window.open(d.profile_url);
             })
             div.transition()		
                 .duration(200)		
-                .style("opacity", .9);		
-            tooltip1.style("visibility", "visible")
-            tooltip1.style("top", "800px").style("left","800px")
-            tooltip1.text(d.description)					
+                .style("opacity", .9)	
+        })					
         .on("mouseout", function(d) {		
             div.transition()		
                 .duration(500)		
