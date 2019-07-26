@@ -125,7 +125,9 @@
                 .style("opacity", 0);
         })
 
-        g.selectAll(".rect").append("text")
+        g.selectAll(".bar").append("text")
+        .data(data)
+        .enter().append("rect")
         .attr("x", function (d) {
                 return x(d.title) / 2;
             })
