@@ -85,7 +85,11 @@
 		    return height - y(Number(d.followers))
         })
         .style("font-family", "times")
-        .on("mouseover", function(d) {		
+        .on("mouseover", function(d) {	
+            d3.select(this)
+            .on("click", function(d) {
+                window.open(d.profile_url);
+            })
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
