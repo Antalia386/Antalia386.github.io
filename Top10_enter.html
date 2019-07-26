@@ -17,11 +17,12 @@
     height: 28px;					
     padding: 2px;				
     font: 16px times;		
-    background: lightsteelblue;	
+    background:rgb(236, 226, 236);	
     border: 0px;		
     border-radius: 8px;			
     cursor: pointer;		
     }
+
 </style>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -50,6 +51,15 @@
 
     var y = d3.scaleLinear()
 	.rangeRound([height, 0]);
+
+    var tooltip1 = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+    .style("font-size", "30px")
+    .style("color", "maroon")
+	//.style("z-index", "10")
+	.style("visibility", "hidden")
+    .attr("fill", "#cccccc"); 
 
     svg.append("text")
     .attr("x", 100)   
@@ -104,10 +114,9 @@
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div.html(d.followers + " followers!")	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px");	
-            })					
+            tooltip1.style("visibility", "visible")
+            tooltip1.style("top", "800px").style("left","800px")
+            tooltip1.text(d.description)					
         .on("mouseout", function(d) {		
             div.transition()		
                 .duration(500)		
