@@ -94,6 +94,7 @@
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
+        .text(function(d) { return d.followers; });
 	    .attr("class", "bar")
 	    .attr("x", function (d) {
 		    return x(d.title);
@@ -106,10 +107,6 @@
 		    return height - y(Number(d.followers))
         })
         .style("font-family", "times")
-        .append("text")
-        .text(function(d) {
-            return d.followers;
-        })
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
             tooltip1.style("top", "600px").style("left","100px").style("right","300px")
