@@ -95,6 +95,7 @@
 	    .data(data)
 	    .enter().append("rect")
 	    .attr("class", "bar")
+        .text(function(d) { return d.followers; })
 	    .attr("x", function (d) {
 		    return x(d.title);
 	    })
