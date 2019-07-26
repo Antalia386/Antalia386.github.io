@@ -101,7 +101,7 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers));
 	    })
-        .text(function(d) { return d.followers; })
+        .append("text").text(function(d) { return d.followers; })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
