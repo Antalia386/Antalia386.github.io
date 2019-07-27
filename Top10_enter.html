@@ -89,8 +89,6 @@
 	    .call(d3.axisBottom(x))
 
         g.append("g")
-        .data(data)
-	    .enter()
 	    .append("text")
 	    .attr("fill", "#000")
 	    .attr("transform", "rotate(-90)")
@@ -100,9 +98,6 @@
 	    .text("By Number of Followers")
         .call(d3.axisLeft(y))
         .append("text")
-	    .attr("y", function(d) { return Number(d.followers) + 2; })
-	    //.attr("dy", ".75em")
-	    .text(function(d) { return Number(d.followers); });
    
 
         g.selectAll(".bar")
