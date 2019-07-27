@@ -100,7 +100,6 @@
 	    .text("By Number of Followers")
         .call(d3.axisLeft(y))
         .append("text")
-	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 2; })
 	    //.attr("dy", ".75em")
 	    .text(function(d) { return Number(d.followers); });
