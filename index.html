@@ -62,7 +62,7 @@ var tooltip1 = d3.select("body")
 
 
 var pack = d3.pack()
-    .size([width-150, height])
+    .size([width-150, height+100])
     .padding(1.5);
 
 d3.csv("channels.csv", function(d) {
