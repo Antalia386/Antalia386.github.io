@@ -101,7 +101,7 @@ d3.csv("Top10_Enter.csv", function(d) {
         tooltip1.style("visibility", "visible")
         tooltip1.style("top", "600px").style("left","1000px")
         tooltip1.text(function (d) {
-          return "<tspan>" + f(d.value / 1000000) + " million subscribers! " + "</tspan>" + "<tspan>" +  d.data.description + "</tspan>";
+          return f(d.value / 1000000) + "<tspan>" + " million subscribers!" + "</tspan>" + "<tspan>" +  d.data.description + "</tspan>";
         })
         //tooltip1.text(f(d.value / 1000000) + " million subscribers! " + d.data.description)
         //tooltip1.text(d.description)
