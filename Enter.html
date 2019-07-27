@@ -169,7 +169,7 @@ d3.csv("Top10_Enter.csv", function(d) {
      .attr("x", 25) 
      .attr("text-anchor", "start")
      .attr("dy", "1em") 
-     .attr("y", function(d, i) { return 20 * i; }) 
+     .attr("y", function(d, i) { return 40 * i; }) 
      .text(function(d) { return d.Call_Type + ": " + d.value + " channels ";})
      .on("click", function(d) { 
          
