@@ -123,7 +123,7 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
         })
-        .bar.append("text")
+        .enter().append("text")
         .attr("x", x.bandwidth()/2)
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 2)
