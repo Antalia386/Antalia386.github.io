@@ -80,6 +80,7 @@
         g.append("g")
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(d3.axisBottom(x))
+        .selectAll("text");
         
         g.append("g")
 	    .call(d3.axisLeft(y))
