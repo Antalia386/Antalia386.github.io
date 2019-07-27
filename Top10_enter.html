@@ -91,7 +91,6 @@
         g.append("g")
         .data(data)
 	    .enter()
-	    .call(d3.axisLeft(y))
 	    .append("text")
 	    .attr("fill", "#000")
 	    .attr("transform", "rotate(-90)")
@@ -103,7 +102,8 @@
 	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 2; })
 	    //.attr("dy", ".75em")
-	    .text(function(d) { return Number(d.followers); });
+	    .text(function(d) { return Number(d.followers); })
+        .call(d3.axisLeft(y));
 
         g.selectAll(".text")  		
 	    .data(data)
