@@ -123,14 +123,13 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
         })
-
-        .append("text")
+        .bar.append("text")
         .attr("x", x.bandwidth()/2)
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 2)
         })
         .text(function(d) { return d.followers; })
-        
+
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
             tooltip1.style("top", "800px").style("left","100px").style("right","300px")
