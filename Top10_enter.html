@@ -23,7 +23,7 @@
     cursor: pointer;		
     }
 
-    text.label {
+    .text.label {
     fill:black;
     font: 15px;  
     font-weight: 400;
@@ -105,8 +105,8 @@
 	    .append("text")
 	    .attr("class","label")
 	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
-	    .attr("y", function(d) { return Number(d.followers) + 1; })
-	    .attr("dy", ".75em")
+	    .attr("y", function(d) { return Number(d.followers) + 2; })
+	    //.attr("dy", ".75em")
 	    .text(function(d) { return d.followers; });
 
         g.selectAll(".bar")
@@ -125,7 +125,6 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
         })
-        .text(function(d) { return d.followers; })
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
             tooltip1.style("top", "600px").style("left","100px").style("right","300px")
