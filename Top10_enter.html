@@ -98,18 +98,18 @@
 	    .attr("dy", "0.41em")
 	    .attr("text-anchor", "end")
 	    .text("By Number of Followers")
+        .call(d3.axisLeft(y))
         .append("text")
 	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 2; })
 	    //.attr("dy", ".75em")
-	    .text(function(d) { return Number(d.followers); })
-        .call(d3.axisLeft(y));
+	    .text(function(d) { return Number(d.followers); });
+   
 
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
 	    .attr("class", "bar")
-        .text(function(d) { return d.followers; })
 	    .attr("x", function (d) {
 		    return x(d.title);
 	    })
