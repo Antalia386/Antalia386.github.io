@@ -111,10 +111,6 @@
 
         g.selectAll(".bar")
 	    .data(data)
-        .attr("x", function(d) { return Number(d.title) / 2; })
-        .attr("y", function(d) { return Number(d.followers) + 2;} )
-        .attr("dy", ".35em")
-        .text(function(d, i) { return d.followers; })
 	    .enter().append("rect")
 	    .attr("class", "bar")
 	    .attr("x", function (d) {
@@ -123,11 +119,18 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers));
 	    })
-       
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
         })
+
+        .append("text")
+        .attr("x", x.bandwidth()/2)
+	    .attr("y", function (d) {
+		    return y(Number(d.followers) + 2)
+        })
+        .text(function(d) { return d.followers; })
+        
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
             tooltip1.style("top", "800px").style("left","100px").style("right","300px")
