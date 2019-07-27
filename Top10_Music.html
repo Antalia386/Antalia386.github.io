@@ -147,7 +147,7 @@
         g.selectAll("bar")
         .data(data)
         .enter().append("text")
-        .attr("x", function (d, i) { return i * (d.title.length/ 2); } )
+        .attr("x", function (d, i) { return i * (data.length / 2); } )
         //.attr("dx", "0.41em")
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 3)
