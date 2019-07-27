@@ -112,8 +112,8 @@ d3.csv("channels.csv", function(d) {
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
-            if (d.data.Call_Type == "Entertainment") {
-                window.open("https://antalia386.github.io/Top10_enter.html");
+            if (d.Call_Type == "Entertainment") {
+            location.href = "https://antalia386.github.io/index_copy.html";
             }
             if (d.data.Call_Type == "Music") {
                 window.open("https://antalia386.github.io/Top10_Music.html");
