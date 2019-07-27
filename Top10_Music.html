@@ -75,13 +75,16 @@
     .attr("text-anchor", "start")  
     .style("font-size", "28px")  
   	.style("font-weight", "bold")
-    .text("Click on each bar explore the channel on YouTube! " + "</br>")
-    .attr("y", 15 )
+    .html("Welcome to Top 10 Popular Music Channels!")
+
+    svg.append("text")
+    .attr("x", 100)   
+    .attr("y", 25 )
     .attr("dy", "1.5em" )
     .attr("text-anchor", "start")  
     .style("font-size", "28px")  
   	.style("font-weight", "bold")
-    .html("Welcome to Top 10 Popular Music Channels!" + "</br>" +  "Click or hover on each bar to explore more about them, or visit them directly on YouTube.")
+    .html("Welcome to Top 10 Popular Music Channels!")
 
     d3.csv("Top10_Music.csv").then(function (data) {
 	    x.domain(data.map(function (d) {
@@ -121,7 +124,7 @@
         })
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
-            tooltip1.style("top", "900px").style("left","100px").style("right","300px")
+            tooltip1.style("top", "800px").style("left","100px").style("right","300px")
             tooltip1.text(d.description)	
             d3.select(this)
             .on("click", function(d) {
