@@ -86,12 +86,12 @@
 		})]);
         g.append("g")
 	    .attr("transform", "translate(0," + height + ")")
+	    .call(d3.axisBottom(x))
         .append("text")
 	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 2; })
 	    //.attr("dy", ".75em")
-	    .text(function(d) { return Number(d.followers); })
-	    .call(d3.axisBottom(x))
+	    .text(function(d) { return Number(d.followers); });
 
         
         g.append("g")
