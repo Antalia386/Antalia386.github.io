@@ -104,7 +104,7 @@
 	    .enter()
 	    .append("text")
 	    .attr("class","label")
-	    .attr("x", (function(d) { return x(d.title) + x.rangeBand() / 2 ; }  ))
+	    .attr("x", (function(d) { return x(d.title) + x.rangeRound() / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 1; })
 	    .attr("dy", ".75em")
 	    .text(function(d) { return d.followers; });
