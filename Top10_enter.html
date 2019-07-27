@@ -89,6 +89,8 @@
 	    .call(d3.axisBottom(x))
 
         g.append("g")
+        .data(data)
+	    .enter()
 	    .call(d3.axisLeft(y))
 	    .append("text")
 	    .attr("fill", "#000")
