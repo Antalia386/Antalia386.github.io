@@ -113,10 +113,10 @@ d3.csv("channels.csv", function(d) {
        	.style("stroke-width", 2)
         .on("click", function(d) {
             if (d.data.Call_Type == "Entertainment") {
-            location.href = "https://antalia386.github.io/Enter.html";
+                location.href = "https://antalia386.github.io/Enter.html";
             }
             if (d.data.Call_Type == "Music") {
-                window.open("https://antalia386.github.io/Top10_Music.html");
+                location.href = "https://antalia386.github.io/Music.html";;
             }
             if (d.data.Call_Type == "Gaming") {
                 window.open("https://antalia386.github.io/Top10_Gaming.html");
