@@ -23,7 +23,7 @@
     cursor: pointer;		
     }
 
-    .text.label {
+    .text {
     fill:black;
     font: 15px;  
     font-weight: 400;
@@ -103,11 +103,10 @@
 	    .data(data)
 	    .enter()
 	    .append("text")
-	    .attr("class","label")
 	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
 	    .attr("y", function(d) { return Number(d.followers) + 2; })
 	    //.attr("dy", ".75em")
-	    .text(function(d) { return d.followers; });
+	    .text(function(d) { return Number(d.followers); });
 
         g.selectAll(".bar")
 	    .data(data)
