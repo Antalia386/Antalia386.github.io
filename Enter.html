@@ -166,11 +166,11 @@ d3.csv("Top10_Enter.csv", function(d) {
    
 
     legend.append("text")
-     .attr("x", 75) 
+     .attr("x", 85) 
      .attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
-     .text(function(d) { return d.Call_Type + ": " + d.value + " channels ";})
+     .text(function(d) { return d.Call_Type + ": " + d.value + " subscribers ";})
      .on("click", function(d) { 
          
         if (d.Call_Type == "Entertainment") {
