@@ -77,16 +77,6 @@
   	.style("font-weight", "bold")
     .text("Click on each bar explore the channel on YouTube! ")
 
-    g.selectAll(".text")  		
-	    .data(data)
-	    .enter()
-	    .append("text")
-	    .attr("class","label")
-	    .attr("x", (function(d) { return xScale(d.title) + xScale.rangeBand() / 2 ; }  ))
-	    .attr("y", function(d) { return Number(d.followers) + 1; })
-	    .attr("dy", ".75em")
-	    .text(function(d) { return d.followers; });
-
     d3.csv("Top10_Enter.csv").then(function (data) {
 	    x.domain(data.map(function (d) {
 			return d.title;
@@ -108,6 +98,16 @@
 	    .attr("dy", "0.41em")
 	    .attr("text-anchor", "end")
 	    .text("By Number of Followers"); 
+
+        g.selectAll(".text")  		
+	    .data(data)
+	    .enter()
+	    .append("text")
+	    .attr("class","label")
+	    .attr("x", (function(d) { return xScale(d.title) + xScale.rangeBand() / 2 ; }  ))
+	    .attr("y", function(d) { return Number(d.followers) + 1; })
+	    .attr("dy", ".75em")
+	    .text(function(d) { return d.followers; });
 
         g.selectAll(".bar")
 	    .data(data)
