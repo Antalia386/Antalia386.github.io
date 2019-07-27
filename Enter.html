@@ -73,6 +73,13 @@ var pack = d3.pack()
 var button = d3.button()
     .on('press', location.href = "https://antalia386.github.io/");
 
+svg.selectAll('.button')
+    .data(data)
+    .enter()
+    .append('g')
+    .attr('class', 'button')
+    .call(button);
+
 d3.csv("Top10_Enter.csv", function(d) {
   d.value = +d["followers"];
   d.title = d["title"]
@@ -149,12 +156,6 @@ d3.csv("Top10_Enter.csv", function(d) {
                 window.open(d.data.profile_url); 
       });
   
-  var buttons = svg.selectAll('.button')
-    .data(data)
-    .enter()
-    .append('g')
-    .attr('class', 'button')
-    .call(button);
 
   var legend = svg.selectAll(".legend")
   .data(data).enter()
