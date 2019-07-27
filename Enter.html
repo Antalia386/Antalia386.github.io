@@ -67,7 +67,8 @@ var pack = d3.pack()
 
 d3.csv("Top10_Enter.csv", function(d) {
   d.value = +d["followers"];
-  d.Call_Type = d["title"]
+  d.Call_Type = d["title"];
+  d.description = d["description"];
 
  	return d;
 }, function(error, data) {
