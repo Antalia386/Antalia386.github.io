@@ -65,9 +65,9 @@ var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
 
-d3.csv("channels.csv", function(d) {
-  d.value = +d["Count"];
-  d.Call_Type = d["Call_Type"]
+d3.csv("Top10_Enter.csv", function(d) {
+  d.value = +d["followers"];
+  d.Call_Type = d["title"]
 
  	return d;
 }, function(error, data) {
@@ -174,7 +174,7 @@ d3.csv("channels.csv", function(d) {
      .on("click", function(d) { 
          
         if (d.Call_Type == "Entertainment") {
-            location.href = "https://antalia386.github.io/index_copy.html";
+                window.open("https://antalia386.github.io/Top10_enter.html");
             }
         if (d.Call_Type == "Music") {
                 window.open("https://antalia386.github.io/Top10_Music.html");
