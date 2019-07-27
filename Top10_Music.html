@@ -147,9 +147,11 @@
         .enter().append("text")
         .attr("x", function (d, i) { return i * (width  / data.length); } )
 	    .attr("y", function (d) {
-		    return y(Number(d.followers) + 2)
+		    return y(Number(d.followers) + 3)
         })
-        .text(d.followers)
+        .text(function (d) {
+            return y(Number(d.followers));
+            })
     });
 
 </script>
