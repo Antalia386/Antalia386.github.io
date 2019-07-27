@@ -137,7 +137,9 @@ d3.csv("Top10_Enter.csv", function(d) {
             return "";
           }
         return d.data.title;})
-      .on("click", function(d) { window.open("https://en.wikipedia.org/wiki/" + d.title, "_blank"); });
+      .on("click", function(d) {
+                window.open(d.data.profile_url); 
+      });
   
   
 
@@ -165,17 +167,7 @@ d3.csv("Top10_Enter.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; }) 
      .text(function(d) { return d.title + ": " + d.value + " subscribers ";})
      .on("click", function(d) { 
-         
-        if (d.title == "Entertainment") {
-                window.open("https://antalia386.github.io/Top10_enter.html");
-            }
-        if (d.title == "Music") {
-                window.open("https://antalia386.github.io/Top10_Music.html");
-            }
-        if (d.title == "Gaming") {
-                window.open("https://antalia386.github.io/Top10_Gaming.html");
-            }
-     
+        window.open(d.data.profile_url);
      })
      .attr("font-size", "12px"); 
 
