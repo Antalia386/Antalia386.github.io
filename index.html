@@ -93,7 +93,7 @@ d3.csv("channels.csv", function(d) {
   
   node.append("circle")
       .attr("id", function(d) { return d.id; })
-      .attr("r", function(d) { return 10; })
+      .attr("r", function(d) { return d.r/2; })
       .style("fill", function(d) { return color(d.data.Call_Type); })
       .on('mouseover', function(d, i) {
         // make the mouseover'd element
