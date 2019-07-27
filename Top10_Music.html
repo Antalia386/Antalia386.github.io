@@ -151,8 +151,8 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers))
         })
-        .style("fill", "white")
-        .attr("dy", "0.71em")
+        .style("fill", "orange")
+        .attr("dy", "0.75em")
         .style("font-size", "12px")
         .text(function (d) {
             return f(d.followers / 1000000) + "M";
