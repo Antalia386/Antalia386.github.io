@@ -87,13 +87,7 @@
         g.append("g")
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(d3.axisBottom(x))
-        .append("text")
-	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
-	    .attr("y", function(d) { return Number(d.followers) + 2; })
-	    //.attr("dy", ".75em")
-	    .text(function(d) { return Number(d.followers); });
 
-        
         g.append("g")
 	    .call(d3.axisLeft(y))
 	    .append("text")
@@ -102,7 +96,12 @@
 	    .attr("y", 6)
 	    .attr("dy", "0.41em")
 	    .attr("text-anchor", "end")
-	    .text("By Number of Followers"); 
+	    .text("By Number of Followers")
+        .append("text")
+	    .attr("x", (function(d) { return x(d.title) / 2 ; }  ))
+	    .attr("y", function(d) { return Number(d.followers) + 2; })
+	    //.attr("dy", ".75em")
+	    .text(function(d) { return Number(d.followers); });
 
         g.selectAll(".text")  		
 	    .data(data)
