@@ -142,11 +142,9 @@
                 .style("opacity", 0);
         })
 
-        g.selectAll(".bar")
+        g.selectAll("rect")
         .data(data)
-        .enter().append("rect")
-	    .attr("class", "bar")
-        .append("text")
+        .enter().append("text")
         .attr("x", x.bandwidth()/2)
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 2)
