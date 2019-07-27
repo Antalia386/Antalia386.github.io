@@ -170,7 +170,7 @@ d3.csv("channels.csv", function(d) {
      .attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
-     .text(function(d) { return d.Call_Type + ": " + d.value + " channels ";})
+     .text(function(d) { return d.Call_Type;})
      .on("click", function(d) { 
          
         if (d.Call_Type == "Entertainment") {
