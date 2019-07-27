@@ -144,7 +144,9 @@
 
         g.selectAll(".bar")
         .data(data)
-        .enter().append("text")
+        .enter().append("rect")
+	    .attr("class", "bar")
+        .append("text")
         .attr("x", x.bandwidth()/2)
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 2)
