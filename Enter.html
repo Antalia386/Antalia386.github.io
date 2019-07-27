@@ -24,6 +24,11 @@ svg {
     font-weight: bold;
   }
 
+  .button rect {
+  stroke: #999faa; /* navy 40% */
+  stroke-width: 2px;
+  }
+
 
 </style>
 <svg width="1260" height="1060" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
@@ -64,6 +69,9 @@ var tooltip1 = d3.select("body")
 var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
+
+var button = d3.button()
+    .on('press', location.href = "https://antalia386.github.io/");
 
 d3.csv("Top10_Enter.csv", function(d) {
   d.value = +d["followers"];
@@ -141,7 +149,12 @@ d3.csv("Top10_Enter.csv", function(d) {
                 window.open(d.data.profile_url); 
       });
   
-  
+  var buttons = svg.selectAll('.button')
+    .data(data)
+    .enter()
+    .append('g')
+    .attr('class', 'button')
+    .call(button);
 
   var legend = svg.selectAll(".legend")
   .data(data).enter()
