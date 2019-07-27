@@ -150,7 +150,7 @@
         .attr("x", function (d) { return x(d.title) + (x.bandwidth() / 2); } )
         //.attr("dx", "0.41em")
 	    .attr("y", function (d) {
-		    return y(Number(d.followers) + 3)
+		    return y(Number(d.followers))
         })
         .style("font-size", "12px")
         .text(function (d) {
