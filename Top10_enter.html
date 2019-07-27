@@ -98,8 +98,6 @@
 	    .attr("text-anchor", "end")
 	    .text("By Number of Followers")
 
-   
-
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
@@ -110,7 +108,7 @@
 	    .attr("y", function (d) {
 		    return y(Number(d.followers));
 	    })
-        .text(function(d) { return d.followers; })
+        .append(".text").text(function(d) { return Number(d.followers); })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
