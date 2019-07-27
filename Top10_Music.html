@@ -81,7 +81,7 @@
     .attr("text-anchor", "start")  
     .style("font-size", "28px")  
   	.style("font-weight", "bold")
-    .text("Welcome to Top 10 Popular Music Channels!" + "</br>" +  "Click or hover on each bar to explore more about them, or visit them directly on YouTube.")
+    .html("Welcome to Top 10 Popular Music Channels!" + "</br>" +  "Click or hover on each bar to explore more about them, or visit them directly on YouTube.")
 
     d3.csv("Top10_Music.csv").then(function (data) {
 	    x.domain(data.map(function (d) {
