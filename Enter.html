@@ -99,7 +99,7 @@ d3.csv("Top10_Enter.csv", function(d) {
         // make the mouseover'd element
         // bigger and red
         tooltip1.style("visibility", "visible")
-        tooltip1.style("top", "600px").style("left","1000px")
+        tooltip1.style("top", "600px").style("left","1000px").style("right", "500px")
         tooltip1.text(f(d.value / 1000000) + " million subscribers: " + d.data.description)
     
         d3.select(this)
