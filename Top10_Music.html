@@ -123,12 +123,6 @@
 	    .attr("height", function (d) {
 		    return height - y(Number(d.followers))
         })
-        .enter().append("text")
-        .attr("x", x.bandwidth()/2)
-	    .attr("y", function (d) {
-		    return y(Number(d.followers) + 2)
-        })
-        .text(function(d) { return d.followers; })
 
         .on("mouseover", function(d) {
             tooltip1.style("visibility", "visible")
@@ -147,6 +141,15 @@
                 .duration(500)		
                 .style("opacity", 0);
         })
+
+        g.selectAll("rect")
+        .data(data)
+        .enter().append("text")
+        .attr("x", x.bandwidth()/2)
+	    .attr("y", function (d) {
+		    return y(Number(d.followers) + 2)
+        })
+        .text(function(d) { return d.followers; })
     });
 
 </script>
