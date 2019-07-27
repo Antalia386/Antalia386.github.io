@@ -78,15 +78,12 @@
     .html("Welcome to Top 10 Popular Music Channels!")
 
     svg.append("text")
-    .attr("x", 100)   
-    .attr("y", 65 )
-    .attr("dy", "1.5em" )
     .attr("text-anchor", "start")  
     .style("font-size", "18px")  
   	.style("font-weight", "100")
     .html(function (d) {
         return "<tspan x='100' dy='1.2em'>" + "Top 10 music channels are sorted below by popularuty (number of subscribers)" + "</tspan>" 
-       + "<tspan x='0' dy='1.2em'>" +  "Hover to learn more about each channel, or click to follow them directly on YouTube" + "</tspan>";
+       + "<tspan x='100' dy='1.2em'>" +  "Hover to learn more about each channel, or click to follow them directly on YouTube" + "</tspan>";
     })
   
 
