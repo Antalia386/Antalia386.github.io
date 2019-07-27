@@ -165,7 +165,7 @@ d3.csv("Top10_Enter.csv", function(d) {
      .attr("text-anchor", "start")
      .attr("dy", "1em") 
      .attr("y", function(d, i) { return 20 * i; }) 
-     .text(function(d) { return d.title + ": " + d.value + " subscribers ";})
+     .text(function(d) { return d.title;})
      .on("click", function(d) { 
         window.open(d.profile_url);
      })
