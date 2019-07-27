@@ -145,11 +145,11 @@
         g.selectAll("bar")
         .data(data)
         .enter().append("text")
-        .attr("x", function (d, i) { return i * (Number(d.title) / 2); } )
+        .attr("x", function (d, i) { return i * (width  / data.length); } )
 	    .attr("y", function (d) {
 		    return y(Number(d.followers) + 2)
         })
-        .text("COOL")
+        .text(d.followers)
     });
 
 </script>
