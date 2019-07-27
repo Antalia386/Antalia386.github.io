@@ -80,7 +80,7 @@
         g.append("g")
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(d3.axisBottom(x))
-        .selectAll("text");
+
         
         g.append("g")
 	    .call(d3.axisLeft(y))
@@ -92,6 +92,16 @@
 	    .attr("text-anchor", "end")
 	    .text("By Number of Followers");
     
+        g.selectAll(".text")  		
+	    .data(data)
+	    .enter()
+	    .append("text")
+	    .attr("class","label")
+	    .attr("x", (function(d) { return xScale(d.title) + xScale.rangeBand() / 2 ; }  ))
+	    .attr("y", function(d) { return Number(d.followers) + 1; })
+	    .attr("dy", ".75em")
+	    .text(function(d) { return d.followers; }); 
+
         g.selectAll(".bar")
 	    .data(data)
 	    .enter().append("rect")
