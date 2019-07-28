@@ -32,7 +32,7 @@ svg {
 <script>
 
 var parm = location.search.substring(1).split("&");
-var res = parameters.toString();
+var res = parm.toString();
 if (res.includes("%20")) {
     res = res.replace('%20',' ');
     res = decodeURIComponent(res.split("=")[1]);
