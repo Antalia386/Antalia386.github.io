@@ -32,7 +32,7 @@ svg {
 <script>
 
 var parameters = location.search.substring(1).split("&");
-var parm = parameters.replace(/%20/g," ");
+var parm = parameters.split('%20').join(' ');
   
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
