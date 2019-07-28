@@ -112,7 +112,7 @@ d3.csv("channels.csv", function(d) {
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
-                location.href = "https://antalia386.github.io/$d.Call_Type.html";
+                location.href = "https://antalia386.github.io/" + d.Call_Type + ".html";
             })
         div.transition()  
             .duration(500);
