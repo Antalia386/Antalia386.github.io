@@ -112,22 +112,8 @@ d3.csv("channels.csv", function(d) {
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
-            if (d.data.Call_Type == "Entertainment") {
-                location.href = "https://antalia386.github.io/Enter.html";
-            }
-            if (d.data.Call_Type == "Music") {
-                location.href = "https://antalia386.github.io/Music.html";
-            }
-            if (d.data.Call_Type == "Gaming") {
-                location.href = "https://antalia386.github.io/Gaming.html";
-            }
-            if (d.data.Call_Type == "People & Blogs") {
-                location.href = "https://antalia386.github.io/PeopleBlogs.html";
-            }
-            if (d.data.Call_Type == "Howto & Style") {
-                location.href = "https://antalia386.github.io/HowtoStyle.html";
-            }
-        }) 
+                location.href = "https://antalia386.github.io/" + "$d.Call_Type" + ".html";
+            })
         div.transition()  
             .duration(500);
         })
