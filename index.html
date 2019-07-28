@@ -136,7 +136,7 @@ d3.csv("channels.csv", function(d) {
             return "";
           }
         return d.data.Call_Type;})
-      .on("click", function(d) { window.open("https://en.wikipedia.org/wiki/" + d.Call_Type, "_blank"); });
+      .on("click", function(d) { location.href = "https://antalia386.github.io/" + d.data.Call_Type + ".html"; });
   
   
 
@@ -164,22 +164,7 @@ d3.csv("channels.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; }) 
      .text(function(d) { return d.Call_Type;})
      .on("click", function(d) { 
-         
-        if (d.Call_Type == "Entertainment") {
-                location.href = "https://antalia386.github.io/Enter.html";
-            }
-        if (d.Call_Type == "Music") {
-                location.href = "https://antalia386.github.io/Music.html";
-            }
-        if (d.Call_Type == "Gaming") {
-                location.href = "https://antalia386.github.io/Gaming.html";
-            }
-        if (d.Call_Type == "People & Blogs") {
-                location.href = "https://antalia386.github.io/PeopleBlogs.html";
-            }
-        if (d.Call_Type == "Howto & Style") {
-                location.href = "https://antalia386.github.io/HowtoStyle.html";
-            }
+        location.href = "https://antalia386.github.io/" + d.data.Call_Type + ".html";
      })
      .attr("font-size", "12px"); 
 
