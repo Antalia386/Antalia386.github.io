@@ -21,6 +21,7 @@ svg {
 
   text:hover {
     cursor: pointer;
+    font-weight: bold;
   }
 
 
@@ -172,7 +173,7 @@ d3.csv("channels.csv", function(d) {
   
       
     legend.append("text")
-     .style("pointer", "none")
+     .style("font-weight", "normal")
      .attr("x",145) 
      .attr("dy", "-.2em")
      .attr("y",-10)
