@@ -63,7 +63,7 @@ var tooltip1 = d3.select("body")
     .text("Welcome to Top Ten Travel & Events Channels!");
 
 var pack = d3.pack()
-    .size([width-250, height-150])
+    .size([width, height-150])
     .padding(1.5);
 
 d3.csv("Travel.csv", function(d) {
