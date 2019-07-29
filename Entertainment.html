@@ -114,8 +114,7 @@ d3.csv("Top10_Enter.csv", function(d) {
         .style("stroke", "red")
        	.style("stroke-width", 2)
         .on("click", function(d) {
-                location.href = "https://antalia386.github.io/Link.html?channel=" + d.data.title;
-                //window.open(d.data.profile_url);
+                window.open(d.data.profile_url);
         }) 
         div.transition()  
             .duration(500);
