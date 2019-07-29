@@ -166,7 +166,7 @@ d3.csv("channels.csv", function(d) {
      .attr("y", function(d, i) { return 20 * i; }) 
      .text(function(d) { return d.Call_Type;})
      .on("click", function(d) { 
-        location.href = "https://antalia386.github.io/" + d.data.Call_Type + ".html";
+        location.href = "https://antalia386.github.io/" + d.Call_Type + ".html";
      })
      .attr("font-size", "12px"); 
 
