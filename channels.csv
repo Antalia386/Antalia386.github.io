@@ -1,15 +1,15 @@
-Call_Type,Count
-Entertainment,17727
-Music,19997
-Howto & Style,9187
-Sports,3965
-Comedy,3202
-Education,5522
-People & Blogs,14170
-Film & Animation,4621
-Gaming,15499
-Science & Technology,3484
-Pets & Animals,880
-News & Politics,1850
-Autos & Vehicles,2581
-Travel & Events,1290
+Call_Type,Count,Description
+Entertainment,17727,Gaming, Music, TV Shows, and more!
+Music,19997,Your Most popular Music videos and creators
+Howto & Style,9187,Trending artists, DIY tutorials, fashion
+Sports,3965,Top Sports channels and news
+Comedy,3202,Fun channels for all ages!
+Education,5522,Self-learning and DIY projects
+People & Blogs,14170,Follow your favorite creators for their life updates
+Film & Animation,4621,Explore new films, cartoons, animations!
+Gaming,15499,Top gaming channels
+Science & Technology,3484,Latest on Science and Technology news 
+Pets & Animals,880,Connect with best pet growers around the world
+News & Politics,1850,Stay in the news of the latest broadcasts
+Autos & Vehicles,2581,Exclusive sharing and educational videos for auto lovers
+Travel & Events,1290,See the world through the best footage of your favorite creators
