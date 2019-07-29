@@ -139,8 +139,8 @@ d3.csv("Top10_Enter.csv", function(d) {
           }
         return d.data.title;})
       .on("click", function(d) {
-        location.href = "https://antalia386.github.io/Link.html?channel=" + d.data.title;
-      });
+                window.open(d.data.profile_url);
+        });
   
 
   var legend = svg.selectAll(".legend")
